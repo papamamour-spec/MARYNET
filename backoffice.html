@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Back-office (démo) · MARYNET</title>
+<meta name="description" content="Le back-office MARYNET : volume traité, commissions perçues sur chaque transaction, versements, séquestre, vérifications et litiges.">
+<meta property="og:title" content="Back-office (démo) · MARYNET">
+<meta property="og:description" content="Le back-office MARYNET : volume traité, commissions perçues sur chaque transaction, versements, séquestre, vérifications et litiges.">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="sr-only" href="#main">Aller au contenu</a>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 4 17v20h32V17z" fill="#0f6b5c"/><path d="M20 3 4 17h32z" fill="#0a4d42"/><path d="M12 33V21l8-5 8 5v12h-5v-8h-6v8z" fill="#f7f1e6"/><circle cx="20" cy="12.5" r="2.6" fill="#e8a33d"/></svg><span>MARYNET</span></a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="navlinks"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="reseau.html" data-i18n="nav.reseau">Le réseau</a></li>
+      <li><a href="familles.html" data-i18n="nav.familles">Familles</a></li>
+      <li><a href="professionnels.html" data-i18n="nav.pros">Professionnels</a></li>
+      <li><a href="entreprises.html" data-i18n="nav.entreprises">Entreprises</a></li>
+      <li><a href="institutions.html" data-i18n="nav.institutions">Institutions</a></li>
+      <li><a href="simulateur.html" data-i18n="nav.simulateur">Simulateur</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="lang-toggle" role="group" aria-label="Langue"><button type="button" data-lang="fr" aria-pressed="true">FR</button><button type="button" data-lang="wo" aria-pressed="false">WO</button></div>
+      <a class="btn btn-primary btn-sm" href="inscription.html" data-i18n="cta.rejoindre">Rejoindre</a>
+    </div>
+  </div>
+</header>
+<main id="main">
+<section class="page-hero" style="padding-bottom:16px">
+  <div class="wrap">
+    <span class="eyebrow">Back-office MARYNET · démonstration · équipe interne</span>
+    <h1>Chaque franc qui passe, chaque commission perçue.</h1>
+    <p class="lead">Le back-office suit le volume traité, retient la commission sur chaque transaction avant versement, gère le séquestre, les vérifications d'identité et les litiges. Données fictives.</p>
+  </div>
+</section>
+<section style="padding-top:10px">
+  <div class="wrap">
+    <div class="tabs" role="tablist" id="bo-tabs">
+      <button class="tab" role="tab" data-tab="finance" aria-selected="true">💰 Finances &amp; commissions</button>
+      <button class="tab" role="tab" data-tab="ledger" aria-selected="false">📒 Grand livre des transactions</button>
+      <button class="tab" role="tab" data-tab="ops" aria-selected="false">🛠️ Opérations (KYC, litiges, paie)</button>
+    </div>
+    <div id="bo-panels"></div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand light" href="index.html"><svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 4 17v20h32V17z" fill="#0f6b5c"/><path d="M20 3 4 17h32z" fill="#0a4d42"/><path d="M12 33V21l8-5 8 5v12h-5v-8h-6v8z" fill="#f7f1e6"/><circle cx="20" cy="12.5" r="2.6" fill="#e8a33d"/></svg><span>MARYNET</span></a>
+        <p style="margin-top:14px;max-width:340px" data-i18n="foot.tag">La maison, en confiance. Le réseau sénégalais qui relie familles, professionnel·les de maison, entreprises et institutions.</p>
+        <p class="small">Dakar · Thiès · Saint-Louis · Saly · Ziguinchor · Touba · Kaolack</p>
+      </div>
+      <div>
+        <h4>Plateforme</h4>
+        <ul>
+          <li><a href="reseau.html">Fil d'actualité</a></li>
+          <li><a href="simulateur.html">Simulateur de formule</a></li>
+          <li><a href="espace.html">Mon espace (démo)</a></li>
+          <li><a href="inscription.html">Créer un compte</a></li>
+          <li><a href="modele-economique.html">Modèle économique</a></li>
+          <li><a href="backoffice.html">Back-office (démo)</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Pour qui</h4>
+        <ul>
+          <li><a href="familles.html">Familles &amp; diaspora</a></li>
+          <li><a href="professionnels.html">Professionnel·les</a></li>
+          <li><a href="entreprises.html">Entreprises (B2B)</a></li>
+          <li><a href="institutions.html">Institutions &amp; agences</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Confiance</h4>
+        <ul>
+          <li><a href="professionnels.html#protection">Protection sociale</a></li>
+          <li><a href="familles.html#confiance">Vérifications &amp; garanties</a></li>
+          <li><a href="index.html#faq">Questions fréquentes</a></li>
+          <li><a href="mailto:contact@marynet.sn">contact@marynet.sn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> MARYNET · Dakar, Sénégal · Prototype de démonstration : les profils et publications sont fictifs.</span>
+      <span>Sans smartphone ? Composez <span class="kbd">*555*MARY#</span> ou écrivez sur WhatsApp.</span>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/backoffice.js"></script>
+</body>
+</html>

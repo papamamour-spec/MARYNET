@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Familles & diaspora · MARYNET</title>
+<meta name="description" content="Trouvez une personne de confiance pour votre maison au Sénégal : ménage, nounou, cuisine, gardiennage. Formules permanent, à l'heure, partagé, abonnement, urgence et diaspora.">
+<meta property="og:title" content="Familles & diaspora · MARYNET">
+<meta property="og:description" content="Trouvez une personne de confiance pour votre maison au Sénégal : ménage, nounou, cuisine, gardiennage. Formules permanent, à l'heure, partagé, abonnement, urgence et diaspora.">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="sr-only" href="#main">Aller au contenu</a>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 4 17v20h32V17z" fill="#0f6b5c"/><path d="M20 3 4 17h32z" fill="#0a4d42"/><path d="M12 33V21l8-5 8 5v12h-5v-8h-6v8z" fill="#f7f1e6"/><circle cx="20" cy="12.5" r="2.6" fill="#e8a33d"/></svg><span>MARYNET</span></a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="navlinks"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="reseau.html" data-i18n="nav.reseau">Le réseau</a></li>
+      <li><a href="familles.html" data-i18n="nav.familles">Familles</a></li>
+      <li><a href="professionnels.html" data-i18n="nav.pros">Professionnels</a></li>
+      <li><a href="entreprises.html" data-i18n="nav.entreprises">Entreprises</a></li>
+      <li><a href="institutions.html" data-i18n="nav.institutions">Institutions</a></li>
+      <li><a href="simulateur.html" data-i18n="nav.simulateur">Simulateur</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="lang-toggle" role="group" aria-label="Langue"><button type="button" data-lang="fr" aria-pressed="true">FR</button><button type="button" data-lang="wo" aria-pressed="false">WO</button></div>
+      <a class="btn btn-primary btn-sm" href="inscription.html" data-i18n="cta.rejoindre">Rejoindre</a>
+    </div>
+  </div>
+</header>
+<main id="main">
+<section class="page-hero">
+  <div class="wrap">
+    <span class="eyebrow">Familles 🏠</span>
+    <h1>La bonne personne, au bon modèle, sans paperasse.</h1>
+    <p class="lead">Publiez votre besoin comme un message, laissez le quartier et MaryMatch vous répondre, signez un contrat conforme par SMS et payez en mobile money. Vous restez l'employeur ; nous nous occupons du reste.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary btn-lg" href="#match">Faire le test MaryMatch</a>
+      <a class="btn btn-outline btn-lg" href="simulateur.html">Simuler mon budget</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head"><span class="eyebrow">Ce que vous obtenez</span><h2>Une aide fiable, protégée par un cadre clair.</h2></div>
+    <div class="grid grid-4">
+      <div class="card reveal"><div class="icon">✅</div><h3>Profils vérifiés</h3><p class="muted small">Identité contrôlée, références appelées, indice Kóllëre transparent et passeport de compétences.</p></div>
+      <div class="card reveal"><div class="icon">📄</div><h3>Contrat en 1 clic</h3><p class="muted small">Contrat domestique conforme, généré selon la formule, signé par SMS. Bulletins de paie automatiques.</p></div>
+      <div class="card reveal"><div class="icon">💳</div><h3>Paiement sécurisé</h3><p class="muted small">Wave, Orange Money, Free Money ou carte. Séquestre sur les missions à l'heure, virement à date pour les permanents.</p></div>
+      <div class="card reveal"><div class="icon">🔁</div><h3>Remplacement garanti</h3><p class="muted small">Absence, maladie, départ : une remplaçante certifiée sous 48 h (24 h pour les niveaux Platine).</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="match" class="band">
+  <div class="wrap">
+    <div class="section-head"><span class="eyebrow">MaryMatch</span><h2>Trois questions, trois profils compatibles.</h2><p style="color:rgba(255,255,255,.8)">Notre moteur croise votre besoin, votre quartier, vos horaires, la langue parlée à la maison et l'indice de confiance pour vous proposer les meilleures rencontres.</p></div>
+    <div class="grid grid-2" style="align-items:start">
+      <form id="match-form" class="sim-panel form" style="color:var(--ink)">
+        <div class="q"><p>1. De quoi avez-vous besoin ?</p>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="besoin" value="menage" checked><span>🧹 Ménage</span></label>
+            <label class="chip"><input type="radio" name="besoin" value="nounou"><span>🧸 Nounou</span></label>
+            <label class="chip"><input type="radio" name="besoin" value="cuisine"><span>🍲 Cuisine</span></label>
+            <label class="chip"><input type="radio" name="besoin" value="gardien"><span>🛡️ Gardiennage</span></label>
+            <label class="chip"><input type="radio" name="besoin" value="senior"><span>🤝 Aide seniors</span></label>
+          </div></div>
+        <div class="q"><p>2. Où et quand ?</p>
+          <div class="row">
+            <div class="field"><label for="m-quartier">Quartier</label><select id="m-quartier" name="quartier"></select></div>
+            <div class="field"><label for="m-rythme">Rythme</label><select id="m-rythme" name="rythme"><option value="plein">Temps plein</option><option value="partiel">Quelques matinées / après-midis</option><option value="ponctuel">Ponctuel</option></select></div>
+          </div></div>
+        <div class="q"><p>3. Ce qui compte le plus pour vous ?</p>
+          <div class="chips">
+            <label class="chip"><input type="checkbox" name="prio" value="langue"><span>Parle français &amp; wolof</span></label>
+            <label class="chip"><input type="checkbox" name="prio" value="certif"><span>Certifiée</span></label>
+            <label class="chip"><input type="checkbox" name="prio" value="enfants"><span>À l'aise avec les enfants</span></label>
+            <label class="chip"><input type="checkbox" name="prio" value="budget"><span>Budget serré</span></label>
+          </div></div>
+        <button class="btn btn-gold btn-lg" type="submit">Voir mes 3 profils</button>
+      </form>
+      <div id="match-results"><div class="empty" style="color:rgba(255,255,255,.7);background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.2)">Vos profils compatibles apparaîtront ici.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="confiance">
+  <div class="wrap two-col">
+    <div>
+      <span class="eyebrow">Confiance &amp; garanties</span>
+      <h2>Ce que nous vérifions avant qu'une personne entre chez vous.</h2>
+      <ol class="num-list">
+        <li><div><strong>Identité</strong><br><span class="muted">Pièce d'identité contrôlée et photo comparée lors de l'entretien d'accueil.</span></div></li>
+        <li><div><strong>Références</strong><br><span class="muted">Deux anciens employeurs appelés par notre équipe, en wolof ou en français.</span></div></li>
+        <li><div><strong>Formation d'accueil</strong><br><span class="muted">Deux jours : hygiène, sécurité, droits et devoirs, utilisation de l'application.</span></div></li>
+        <li><div><strong>Suivi continu</strong><br><span class="muted">Pointage à chaque mission, avis des deux parties, indice mis à jour, médiation sous 24 h.</span></div></li>
+      </ol>
+    </div>
+    <div class="card gold">
+      <h3>Et vous aussi, vous êtes noté·e.</h3>
+      <p>Les professionnel·les évaluent les familles : paiement à l'heure, respect des horaires, dignité. Un bon <a href="scoring.html">indice client</a> vous donne accès aux meilleurs profils, sans acompte, avec l'Urgence en 2 h.</p>
+      <p class="small muted" style="margin:0">C'est ce qui fait de MARYNET un réseau et non un annuaire : chacun a intérêt à bien se comporter.</p>
+    </div>
+  </div>
+</section>
+
+<section id="diaspora" class="band-teal">
+  <div class="wrap two-col">
+    <div>
+      <span class="eyebrow">Sama Kër · Diaspora ✈️</span>
+      <h2>Prendre soin des vôtres au pays, depuis n'importe où.</h2>
+      <p style="color:rgba(255,255,255,.85)">Vous vivez à Paris, Milan, New York ou Montréal et vos parents à Thiès ou Dakar ont besoin d'aide. Avec Sama Kër, vous choisissez, payez et suivez tout depuis votre téléphone. Vos proches n'ont rien à gérer.</p>
+      <ul class="list-check" style="color:#fff">
+        <li>Paiement par carte ou virement en €, $ ou CAD ; la professionnelle est payée en Wave ou Orange Money</li>
+        <li>Rapport de passage avec photo et heure, visible en temps réel</li>
+        <li>Deux contacts de confiance au pays notifiés à chaque mission</li>
+        <li>Appel vidéo hebdomadaire optionnel avec la professionnelle</li>
+        <li>Aide aux seniors, courses, cuisine, accompagnement médical</li>
+      </ul>
+      <a class="btn btn-gold" href="inscription.html?role=diaspora">Mettre en place une aide pour ma famille</a>
+    </div>
+    <div class="phone" style="margin-inline:auto">
+      <div class="t">MARYNET · Sama Kër</div>
+      <br>Bonjour Fatou 👋<br>
+      <br>✅ 08:02 — Awa est arrivée chez Maman (Thiès)<br>📷 Photo de pointage<br>
+      <br>🍲 10:15 — Déjeuner préparé, médicaments donnés<br>
+      <br>✅ 12:04 — Fin de mission · 4 h<br>💳 8 000 F débités (≈ 12,20 €)<br>
+      <br>⭐ Notez la mission : ★★★★★<br>
+      <br><span class="t">→ Répondre · Appeler Awa · Voir le mois</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head"><span class="eyebrow">Tarifs indicatifs · Dakar</span><h2>Des prix justes, affichés avant de s'engager.</h2><p class="muted">Fourchettes constatées sur la plateforme. Les professionnel·les fixent leur tarif ; MARYNET garantit un plancher au-dessus du SMIG. Les frais de plateforme sont toujours affichés séparément.</p></div>
+    <div class="compare">
+      <table class="table">
+        <thead><tr><th>Service</th><th>À l'heure</th><th>Temps plein / mois</th><th>Partagé (3 foyers) / mois / foyer</th><th>Abonnement 2×/sem</th></tr></thead>
+        <tbody>
+          <tr><td>🧹 Ménage &amp; entretien</td><td>1 500 – 2 500 F</td><td>75 000 – 120 000 F</td><td>30 000 – 45 000 F</td><td>36 000 F</td></tr>
+          <tr><td>🧸 Nounou</td><td>2 000 – 3 000 F</td><td>100 000 – 160 000 F</td><td>40 000 – 60 000 F</td><td>44 000 F</td></tr>
+          <tr><td>🍲 Cuisine</td><td>2 000 – 3 000 F</td><td>90 000 – 140 000 F</td><td>35 000 – 50 000 F</td><td>40 000 F</td></tr>
+          <tr><td>🛡️ Gardiennage</td><td>1 200 – 2 000 F</td><td>80 000 – 110 000 F</td><td>30 000 – 40 000 F</td><td>—</td></tr>
+          <tr><td>🤝 Aide aux seniors</td><td>2 000 – 3 500 F</td><td>110 000 – 170 000 F</td><td>—</td><td>48 000 F</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="center" style="margin-top:24px"><a class="btn btn-primary btn-lg" href="simulateur.html">Calculer précisément mon budget</a></p>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand light" href="index.html"><svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 4 17v20h32V17z" fill="#0f6b5c"/><path d="M20 3 4 17h32z" fill="#0a4d42"/><path d="M12 33V21l8-5 8 5v12h-5v-8h-6v8z" fill="#f7f1e6"/><circle cx="20" cy="12.5" r="2.6" fill="#e8a33d"/></svg><span>MARYNET</span></a>
+        <p style="margin-top:14px;max-width:340px" data-i18n="foot.tag">La maison, en confiance. Le réseau sénégalais qui relie familles, professionnel·les de maison, entreprises et institutions.</p>
+        <p class="small">Dakar · Thiès · Saint-Louis · Saly · Ziguinchor · Touba · Kaolack</p>
+      </div>
+      <div>
+        <h4>Plateforme</h4>
+        <ul>
+          <li><a href="reseau.html">Fil d'actualité</a></li>
+          <li><a href="simulateur.html">Simulateur de formule</a></li>
+          <li><a href="espace.html">Mon espace (démo)</a></li>
+          <li><a href="inscription.html">Créer un compte</a></li>
+          <li><a href="modele-economique.html">Modèle économique</a></li>
+          <li><a href="backoffice.html">Back-office (démo)</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Pour qui</h4>
+        <ul>
+          <li><a href="familles.html">Familles &amp; diaspora</a></li>
+          <li><a href="professionnels.html">Professionnel·les</a></li>
+          <li><a href="entreprises.html">Entreprises (B2B)</a></li>
+          <li><a href="institutions.html">Institutions &amp; agences</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Confiance</h4>
+        <ul>
+          <li><a href="professionnels.html#protection">Protection sociale</a></li>
+          <li><a href="familles.html#confiance">Vérifications &amp; garanties</a></li>
+          <li><a href="index.html#faq">Questions fréquentes</a></li>
+          <li><a href="mailto:contact@marynet.sn">contact@marynet.sn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> MARYNET · Dakar, Sénégal · Prototype de démonstration : les profils et publications sont fictifs.</span>
+      <span>Sans smartphone ? Composez <span class="kbd">*555*MARY#</span> ou écrivez sur WhatsApp.</span>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/match.js"></script>
+</body>
+</html>

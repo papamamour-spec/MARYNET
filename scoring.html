@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Indice Kóllëre, le scoring à double sens · MARYNET</title>
+<meta name="description" content="Le scoring MARYNET note aussi bien les professionnel·les que les clients (familles, entreprises, institutions) : transparent, symétrique et contestable.">
+<meta property="og:title" content="Indice Kóllëre, le scoring à double sens · MARYNET">
+<meta property="og:description" content="Le scoring MARYNET note aussi bien les professionnel·les que les clients (familles, entreprises, institutions) : transparent, symétrique et contestable.">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="sr-only" href="#main">Aller au contenu</a>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 4 17v20h32V17z" fill="#0f6b5c"/><path d="M20 3 4 17h32z" fill="#0a4d42"/><path d="M12 33V21l8-5 8 5v12h-5v-8h-6v8z" fill="#f7f1e6"/><circle cx="20" cy="12.5" r="2.6" fill="#e8a33d"/></svg><span>MARYNET</span></a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="navlinks"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="reseau.html" data-i18n="nav.reseau">Le réseau</a></li>
+      <li><a href="familles.html" data-i18n="nav.familles">Familles</a></li>
+      <li><a href="professionnels.html" data-i18n="nav.pros">Professionnels</a></li>
+      <li><a href="entreprises.html" data-i18n="nav.entreprises">Entreprises</a></li>
+      <li><a href="institutions.html" data-i18n="nav.institutions">Institutions</a></li>
+      <li><a href="simulateur.html" data-i18n="nav.simulateur">Simulateur</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="lang-toggle" role="group" aria-label="Langue"><button type="button" data-lang="fr" aria-pressed="true">FR</button><button type="button" data-lang="wo" aria-pressed="false">WO</button></div>
+      <a class="btn btn-primary btn-sm" href="inscription.html" data-i18n="cta.rejoindre">Rejoindre</a>
+    </div>
+  </div>
+</header>
+<main id="main">
+<section class="page-hero">
+  <div class="wrap">
+    <span class="eyebrow">Indice Kóllëre · confiance à double sens</span>
+    <h1>Un score pour les professionnel·les. Un score pour les clients. Les mêmes règles pour tous.</h1>
+    <p class="lead">Sur MARYNET, une famille, une entreprise ou une institution est notée avec la même rigueur qu'une aide-ménagère. Payer en retard, annuler au dernier moment ou manquer de respect coûte des points, exactement comme arriver en retard à une mission. C'est ce qui rend la confiance possible dans les deux sens.</p>
+  </div>
+</section>
+
+<section style="padding-top:20px">
+  <div class="wrap grid grid-2">
+    <div class="card reveal">
+      <div class="icon">⭐</div>
+      <h3>Score professionnel·le (agent)</h3>
+      <p class="muted">Cinq familles de critères, mises à jour après chaque mission. Le pointage, les avis et les cotisations alimentent le score automatiquement.</p>
+      <div class="score-rows" id="agent-rows"></div>
+    </div>
+    <div class="card reveal">
+      <div class="icon" style="background:var(--gold-soft);color:#7a4f0e">🏠</div>
+      <h3>Score client (famille, entreprise, institution)</h3>
+      <p class="muted">Ce sont les professionnel·les qui notent leurs employeurs, anonymement. La ponctualité des paiements est mesurée directement par la plateforme.</p>
+      <div class="score-rows" id="client-rows"></div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Simulateur de score</span>
+      <h2>Testez : comment évolue un indice ?</h2>
+      <p style="color:rgba(255,255,255,.8)">Déplacez les curseurs pour voir l'impact de chaque comportement. Les niveaux débloquent des avantages concrets.</p>
+    </div>
+    <div class="grid grid-2">
+      <div class="sim-panel" style="color:var(--ink)">
+        <h3>Je suis professionnel·le</h3>
+        <form id="agent-form" class="form"></form>
+        <div style="display:flex;gap:20px;align-items:center;margin-top:18px;flex-wrap:wrap">
+          <div class="score-ring" id="agent-ring" style="--v:0"><strong id="agent-score">0</strong></div>
+          <div><span class="level" id="agent-level">—</span><p class="small muted" id="agent-perks" style="margin:8px 0 0"></p></div>
+        </div>
+      </div>
+      <div class="sim-panel" style="color:var(--ink)">
+        <h3>Je suis client (famille ou entreprise)</h3>
+        <form id="client-form" class="form"></form>
+        <div style="display:flex;gap:20px;align-items:center;margin-top:18px;flex-wrap:wrap">
+          <div class="score-ring gold" id="client-ring" style="--v:0"><strong id="client-score">0</strong></div>
+          <div><span class="level" id="client-level">—</span><p class="small muted" id="client-perks" style="margin:8px 0 0"></p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Niveaux &amp; avantages</span>
+      <h2>Un bon indice, ça rapporte.</h2>
+    </div>
+    <div class="compare">
+      <table class="table">
+        <thead><tr><th>Niveau</th><th>Indice</th><th>Avantages professionnel·le</th><th>Avantages client</th></tr></thead>
+        <tbody>
+          <tr><td><span class="level bronze">Bronze</span></td><td>0 – 59</td><td>Accès au fil, missions à l'heure avec paiement séquestré, accompagnement pour progresser.</td><td>Acompte de 50 % sur les missions, pas d'accès à l'Urgence, parrainage requis pour un contrat permanent.</td></tr>
+          <tr><td><span class="level argent">Argent</span></td><td>60 – 79</td><td>Mise en avant dans MaryMatch, accès aux offres B2B, mutuelle santé de groupe.</td><td>Acompte de 25 %, accès à l'Urgence, contrats permanents et Partagé.</td></tr>
+          <tr><td><span class="level or">Or</span></td><td>80 – 91</td><td>Commission réduite (10 % → 8 %), tirelire bonifiée, formations avancées offertes.</td><td>Sans acompte, badge « Employeur de confiance », priorité sur les profils Platine.</td></tr>
+          <tr><td><span class="level platine">Platine</span></td><td>92 – 100</td><td>Commission 7 %, accès au micro-crédit partenaire, statut de formatrice·teur rémunéré, chef·fe d'équipe B2B.</td><td>Conditions cadre B2B, remplacement garanti sous 24 h, ligne prioritaire, tarifs négociés diaspora.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap grid grid-4">
+    <div class="card reveal"><div class="icon">⚖️</div><h3>Symétrique</h3><p class="muted small">Les deux parties se notent après chaque mission. Aucune note n'est publiée tant que l'autre n'a pas noté (ou après 7 jours), pour éviter les représailles.</p></div>
+    <div class="card reveal"><div class="icon">🔎</div><h3>Transparent</h3><p class="muted small">Chaque personne voit le détail de son indice et ce qui le ferait progresser. Aucune boîte noire.</p></div>
+    <div class="card reveal"><div class="icon">🛠️</div><h3>Contestable</h3><p class="muted small">Un avis peut être contesté sous 7 jours auprès de la cellule de médiation. Les avis injustifiés sont neutralisés.</p></div>
+    <div class="card reveal"><div class="icon">🌱</div><h3>Réparable</h3><p class="muted small">Les incidents anciens pèsent moins avec le temps. Une formation ou 10 missions sans incident font remonter l'indice.</p></div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand light" href="index.html"><svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 4 17v20h32V17z" fill="#0f6b5c"/><path d="M20 3 4 17h32z" fill="#0a4d42"/><path d="M12 33V21l8-5 8 5v12h-5v-8h-6v8z" fill="#f7f1e6"/><circle cx="20" cy="12.5" r="2.6" fill="#e8a33d"/></svg><span>MARYNET</span></a>
+        <p style="margin-top:14px;max-width:340px" data-i18n="foot.tag">La maison, en confiance. Le réseau sénégalais qui relie familles, professionnel·les de maison, entreprises et institutions.</p>
+        <p class="small">Dakar · Thiès · Saint-Louis · Saly · Ziguinchor · Touba · Kaolack</p>
+      </div>
+      <div>
+        <h4>Plateforme</h4>
+        <ul>
+          <li><a href="reseau.html">Fil d'actualité</a></li>
+          <li><a href="simulateur.html">Simulateur de formule</a></li>
+          <li><a href="espace.html">Mon espace (démo)</a></li>
+          <li><a href="inscription.html">Créer un compte</a></li>
+          <li><a href="modele-economique.html">Modèle économique</a></li>
+          <li><a href="backoffice.html">Back-office (démo)</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Pour qui</h4>
+        <ul>
+          <li><a href="familles.html">Familles &amp; diaspora</a></li>
+          <li><a href="professionnels.html">Professionnel·les</a></li>
+          <li><a href="entreprises.html">Entreprises (B2B)</a></li>
+          <li><a href="institutions.html">Institutions &amp; agences</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Confiance</h4>
+        <ul>
+          <li><a href="professionnels.html#protection">Protection sociale</a></li>
+          <li><a href="familles.html#confiance">Vérifications &amp; garanties</a></li>
+          <li><a href="index.html#faq">Questions fréquentes</a></li>
+          <li><a href="mailto:contact@marynet.sn">contact@marynet.sn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> MARYNET · Dakar, Sénégal · Prototype de démonstration : les profils et publications sont fictifs.</span>
+      <span>Sans smartphone ? Composez <span class="kbd">*555*MARY#</span> ou écrivez sur WhatsApp.</span>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/scoring.js"></script>
+</body>
+</html>
