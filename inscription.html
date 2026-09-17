@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Créer un compte · MARYNET</title>
+<meta name="description" content="Rejoignez MARYNET en 2 minutes : famille, professionnel·le, entreprise, institution, agence ou diaspora.">
+<meta property="og:title" content="Créer un compte · MARYNET">
+<meta property="og:description" content="Rejoignez MARYNET en 2 minutes : famille, professionnel·le, entreprise, institution, agence ou diaspora.">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="sr-only" href="#main">Aller au contenu</a>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 4 17v20h32V17z" fill="#0f6b5c"/><path d="M20 3 4 17h32z" fill="#0a4d42"/><path d="M12 33V21l8-5 8 5v12h-5v-8h-6v8z" fill="#f7f1e6"/><circle cx="20" cy="12.5" r="2.6" fill="#e8a33d"/></svg><span>MARYNET</span></a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="navlinks"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="reseau.html" data-i18n="nav.reseau">Le réseau</a></li>
+      <li><a href="familles.html" data-i18n="nav.familles">Familles</a></li>
+      <li><a href="professionnels.html" data-i18n="nav.pros">Professionnels</a></li>
+      <li><a href="entreprises.html" data-i18n="nav.entreprises">Entreprises</a></li>
+      <li><a href="institutions.html" data-i18n="nav.institutions">Institutions</a></li>
+      <li><a href="simulateur.html" data-i18n="nav.simulateur">Simulateur</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="lang-toggle" role="group" aria-label="Langue"><button type="button" data-lang="fr" aria-pressed="true">FR</button><button type="button" data-lang="wo" aria-pressed="false">WO</button></div>
+      <a class="btn btn-primary btn-sm" href="inscription.html" data-i18n="cta.rejoindre">Rejoindre</a>
+    </div>
+  </div>
+</header>
+<main id="main">
+<section class="page-hero" style="padding-bottom:10px">
+  <div class="wrap">
+    <span class="eyebrow">Inscription gratuite · 2 minutes</span>
+    <h1>Qui êtes-vous sur MARYNET ?</h1>
+    <p class="lead">Le réseau s'adapte à votre rôle. Vous pourrez en ajouter d'autres plus tard (une famille peut aussi être une entreprise, une professionnelle peut devenir formatrice).</p>
+  </div>
+</section>
+<section style="padding-top:10px">
+  <div class="wrap sim">
+    <div>
+      <div class="grid grid-3" id="roles" style="margin-bottom:22px">
+        <button type="button" class="card" data-role="famille"><div class="icon">🏠</div><h3>Famille</h3><p class="muted small">Je cherche de l'aide pour ma maison.</p></button>
+        <button type="button" class="card" data-role="pro"><div class="icon">⭐</div><h3>Professionnel·le</h3><p class="muted small">Je propose mes services.</p></button>
+        <button type="button" class="card" data-role="entreprise"><div class="icon">🏢</div><h3>Entreprise</h3><p class="muted small">Je cherche des équipes pour mes sites.</p></button>
+        <button type="button" class="card" data-role="institution"><div class="icon">🏛️</div><h3>Institution</h3><p class="muted small">Je veux financer, former, mesurer.</p></button>
+        <button type="button" class="card" data-role="agence"><div class="icon">🤝</div><h3>Agence</h3><p class="muted small">Je place déjà du personnel.</p></button>
+        <button type="button" class="card" data-role="diaspora"><div class="icon">✈️</div><h3>Diaspora</h3><p class="muted small">J'aide mes proches au pays.</p></button>
+      </div>
+      <form class="sim-panel form" id="signup" novalidate>
+        <h3 id="f-title">Créer mon compte famille</h3>
+        <div class="row">
+          <div class="field"><label for="f-nom">Nom complet / raison sociale</label><input type="text" id="f-nom" required placeholder="Ex. : Famille Diop"></div>
+          <div class="field"><label for="f-tel">Téléphone (Wave / Orange Money)</label><input type="tel" id="f-tel" required placeholder="+221 77 000 00 00"></div>
+        </div>
+        <div class="row">
+          <div class="field"><label for="f-quartier">Quartier / ville</label><select id="f-quartier"></select></div>
+          <div class="field"><label for="f-langue">Langue préférée</label><select id="f-langue"><option>Français</option><option>Wolof</option><option>Pulaar</option><option>Anglais</option></select></div>
+        </div>
+        <div id="f-extra"></div>
+        <div class="field"><label for="f-msg">Votre premier besoin ou votre première disponibilité (facultatif)</label><textarea id="f-msg" placeholder="Il sera publié sur le fil de votre quartier dès validation de votre identité."></textarea></div>
+        <label class="chip" style="display:block"><input type="checkbox" id="f-ok" required><span>J'accepte la charte de confiance MARYNET (respect, paiement à date, notation mutuelle)</span></label>
+        <button class="btn btn-primary btn-lg" type="submit">Créer mon compte</button>
+        <p class="small muted" style="margin:0">Étape suivante : vérification de votre identité par un·e conseiller·e (appel ou WhatsApp) sous 24 h.</p>
+      </form>
+    </div>
+    <div class="sim-result">
+      <div class="card dark">
+        <h3>Ce qui se passe ensuite</h3>
+        <ol class="num-list" style="color:#fff">
+          <li><div><strong>Vérification</strong><br><span style="opacity:.8">Identité, téléphone, références (pros) ou moyen de paiement (clients).</span></div></li>
+          <li><div><strong>Indice de départ</strong><br><span style="opacity:.8">Vous démarrez à 55 (Bronze). Formation d'accueil ou premier paiement à l'heure : + 10.</span></div></li>
+          <li><div><strong>Première mise en relation</strong><br><span style="opacity:.8">Votre publication est diffusée dans votre quartier et à MaryMatch.</span></div></li>
+        </ol>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <h3>Sans smartphone ?</h3>
+        <p class="small muted">Composez <span class="kbd">*555*MARY#</span> ou envoyez « MARY » sur WhatsApp au <strong>+221 77 555 00 00</strong> (numéro de démonstration). Un·e conseiller·e crée le compte avec vous, en wolof ou en français.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand light" href="index.html"><svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 4 17v20h32V17z" fill="#0f6b5c"/><path d="M20 3 4 17h32z" fill="#0a4d42"/><path d="M12 33V21l8-5 8 5v12h-5v-8h-6v8z" fill="#f7f1e6"/><circle cx="20" cy="12.5" r="2.6" fill="#e8a33d"/></svg><span>MARYNET</span></a>
+        <p style="margin-top:14px;max-width:340px" data-i18n="foot.tag">La maison, en confiance. Le réseau sénégalais qui relie familles, professionnel·les de maison, entreprises et institutions.</p>
+        <p class="small">Dakar · Thiès · Saint-Louis · Saly · Ziguinchor · Touba · Kaolack</p>
+      </div>
+      <div>
+        <h4>Plateforme</h4>
+        <ul>
+          <li><a href="reseau.html">Fil d'actualité</a></li>
+          <li><a href="simulateur.html">Simulateur de formule</a></li>
+          <li><a href="espace.html">Mon espace (démo)</a></li>
+          <li><a href="inscription.html">Créer un compte</a></li>
+          <li><a href="modele-economique.html">Modèle économique</a></li>
+          <li><a href="backoffice.html">Back-office (démo)</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Pour qui</h4>
+        <ul>
+          <li><a href="familles.html">Familles &amp; diaspora</a></li>
+          <li><a href="professionnels.html">Professionnel·les</a></li>
+          <li><a href="entreprises.html">Entreprises (B2B)</a></li>
+          <li><a href="institutions.html">Institutions &amp; agences</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Confiance</h4>
+        <ul>
+          <li><a href="professionnels.html#protection">Protection sociale</a></li>
+          <li><a href="familles.html#confiance">Vérifications &amp; garanties</a></li>
+          <li><a href="index.html#faq">Questions fréquentes</a></li>
+          <li><a href="mailto:contact@marynet.sn">contact@marynet.sn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> MARYNET · Dakar, Sénégal · Prototype de démonstration : les profils et publications sont fictifs.</span>
+      <span>Sans smartphone ? Composez <span class="kbd">*555*MARY#</span> ou écrivez sur WhatsApp.</span>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/inscription.js"></script>
+</body>
+</html>

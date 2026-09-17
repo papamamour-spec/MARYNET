@@ -1,0 +1,15 @@
+{
+  "name": "marynet",
+  "version": "1.0.0",
+  "description": "MARYNET — réseau de confiance pour le personnel de maison au Sénégal (familles, professionnel·les, entreprises, institutions, diaspora).",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT"
+}
