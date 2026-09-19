@@ -49,12 +49,55 @@ simulateur.html     Recommandation de formule + budget mensuel détaillé
 espace.html         Tableaux de bord de démonstration (6 rôles)
 inscription.html    Inscription adaptative par rôle
 modele-economique.html  Sources de revenus, commissions par transaction, simulateur de revenus
-backoffice.html     Back-office de démonstration : finances, grand livre des commissions, KYC, litiges, paie
+backoffice.html     Démonstration publique du back-office (données fictives statiques)
+admin.html          Vrai back-office (/admin, protégé) : vue d'ensemble, reporting, transactions, opérations, paramétrage
+admin-login.html    Page de connexion du back-office
 assets/css/style.css, assets/js/*.js, assets/img/
-server.js           Serveur Node sans dépendance (Railway)
+server.js           Serveur Node sans dépendance : site, API, authentification, stockage JSON (Railway)
 ```
 
 Le site est **100 % statique** (HTML/CSS/JS, aucune étape de build). Les données (profils, publications) sont fictives et vivent dans `assets/js/data.js`. Les interactions (publications, réactions, inscription) sont conservées dans le `localStorage` du navigateur.
+
+## Back-office : paramétrage et reporting
+
+Le back-office de pilotage est à l'adresse **`/admin`** (par exemple `https://votre-app.up.railway.app/admin`). Il est protégé par un mot de passe.
+
+| Vue | Ce qu'on y fait |
+|---|---|
+| **Vue d'ensemble** | Volume traité, revenu MARYNET, prise moyenne, clients et pros actifs sur 30 jours avec variation, revenu mensuel, alertes (litiges, KYC en retard, séquestre) |
+| **Reporting** | Activité globale filtrable par période, ville, type de flux, acteur, canal de paiement et statut ; graphiques mensuels, répartitions, tableaux ; **export CSV** pour Excel |
+| **Transactions** | Grand livre paginé : chaque paiement avec le taux et la commission retenue à la source |
+| **Opérations** | File de vérification d'identité (valider / rejeter) et litiges en médiation (trancher, décision tracée) |
+| **Paramétrage** | Taux de commission par flux, abonnements, planchers de salaire, seuils des niveaux Kóllëre, formules actives, canaux de paiement, villes ouvertes, seuils d'alerte |
+
+Les paramètres enregistrés sont exposés sur `/api/settings` et **appliqués au simulateur public** (commission, Sérénité, frais de placement, plancher, majoration Urgence, formules désactivées).
+
+### Accès et sécurité
+
+- Le mot de passe est la variable d'environnement **`ADMIN_PASSWORD`**. Sur Railway : *Variables → New Variable → `ADMIN_PASSWORD`*. Sans cette variable en production, `/admin` reste désactivé.
+- En local sans variable, le mot de passe de développement est `marynet2026`.
+- Session de 12 h par cookie `HttpOnly` ; 5 échecs de connexion bloquent l'adresse IP 15 minutes ; l'API `/api/admin/*` refuse toute requête non authentifiée.
+
+### Persistance des données
+
+Paramètres, transactions et opérations sont stockés en JSON dans `DATA_DIR` (défaut : `./data`, ignoré par git). Sur Railway, le disque est effacé à chaque déploiement : montez un **Volume** (*Service → Volumes → Add Volume*, chemin `/data`) et définissez `DATA_DIR=/data` pour conserver le paramétrage. Sans volume, tout revient aux valeurs par défaut et au jeu de démonstration à chaque redéploiement.
+
+Le jeu de transactions (6 mois, ~1 600 opérations) est **fictif et généré automatiquement** au premier démarrage ; le bouton *Réinitialiser les données de démo* le régénère. En production, il sera remplacé par les flux réels des agrégateurs de paiement.
+
+### API
+
+```
+GET  /api/settings                 paramètres publics (lecture)
+POST /api/admin/login              { password }
+POST /api/admin/logout
+GET  /api/admin/me
+GET  /api/admin/report?from&to&ville&type&acteur&canal&statut
+GET  /api/admin/report.csv?...     export des transactions filtrées
+GET  /api/admin/transactions?page&limit&...
+GET  /api/admin/settings  ·  PUT /api/admin/settings
+GET  /api/admin/ops  ·  POST /api/admin/kyc/:id  ·  POST /api/admin/litiges/:id
+POST /api/admin/reset
+```
 
 ## Lancer en local
 
@@ -72,7 +115,7 @@ Ou n'importe quel serveur statique (`python3 -m http.server`), les pages fonctio
 3. Railway détecte `package.json` (Nixpacks) et lance `npm start`. Le serveur écoute sur la variable `PORT` fournie par Railway ; le healthcheck est sur `/health` (configuré dans `railway.json`).
 4. **Settings → Networking → Generate Domain** pour obtenir l'URL publique.
 
-Aucune variable d'environnement n'est nécessaire. Chaque `git push` redéploie automatiquement.
+Ajoutez la variable `ADMIN_PASSWORD` pour activer le back-office `/admin` et, idéalement, un Volume sur `/data` avec `DATA_DIR=/data` (voir ci-dessous). Chaque `git push` redéploie automatiquement.
 
 ## Feuille de route (backend)
 

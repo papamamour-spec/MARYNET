@@ -3,6 +3,14 @@
   "use strict";
   var M = window.MARYNET;
   var form = document.getElementById("sim"); if (!form) return;
+  /* Paramètres définis dans le back-office (/admin), avec valeurs par défaut */
+  var CFG = { heure: 10, serenite: 9500, serenitePartage: 4500, placementPct: 50, diaspora: 3, urgenceMajoration: 25, plancherMensuel: 75000, cotisationsPct: 12.6, formules: null };
+  fetch("/api/settings").then(function (r) { return r.ok ? r.json() : null; }).then(function (s) {
+    if (!s) return;
+    CFG.heure = s.commissions.heure; CFG.serenite = s.commissions.serenite; CFG.serenitePartage = s.commissions.serenitePartage; CFG.placementPct = s.commissions.placementPct;
+    CFG.diaspora = s.commissions.diaspora; CFG.urgenceMajoration = s.commissions.urgenceMajoration; CFG.plancherMensuel = s.salaires.plancherMensuel; CFG.cotisationsPct = s.salaires.cotisationsPct; CFG.formules = s.formules;
+    compute();
+  }).catch(function () {});
   var sv = document.getElementById("sim-services");
   var pre = new URLSearchParams(location.search).get("formule");
   M.SERVICES.filter(function (s) { return s.id !== "bureaux" && s.id !== "hotel"; }).forEach(function (s, i) {
@@ -39,29 +47,29 @@
     var lines = [], total = 0, alt = "";
     function add(l, v) { lines.push([l, v]); total += v; }
     if (f === "permanent") {
-      var salaire = Math.max(75000, Math.round(rate * hMois * 0.8 / 1000) * 1000);
+      var salaire = Math.max(CFG.plancherMensuel, Math.round(rate * hMois * 0.8 / 1000) * 1000);
       if (loge) salaire = Math.round(salaire * 0.85 / 1000) * 1000;
       add("Salaire net de la professionnelle" + (loge ? " (logée)" : ""), salaire);
-      add("Cotisations IPRES + CSS (estimation)", Math.round(salaire * 0.126));
-      if (serenite) add("Abonnement Sérénité (paie, remplacement, mutuelle)", 9500);
-      lines.push(["Frais de placement (une fois, à la signature)", Math.round(salaire * 0.5)]);
-      if (hSem < 45) alt = "<strong>Alternative :</strong> en formule Partagée avec un foyer voisin, votre part tomberait à environ " + M.fcfa(Math.round((salaire * 1.126) / 2 / 1000) * 1000) + " / mois.";
+      add("Cotisations IPRES + CSS (estimation)", Math.round(salaire * CFG.cotisationsPct / 100));
+      if (serenite) add("Abonnement Sérénité (paie, remplacement, mutuelle)", CFG.serenite);
+      lines.push(["Frais de placement (une fois, à la signature)", Math.round(salaire * CFG.placementPct / 100)]);
+      if (hSem < 45) alt = "<strong>Alternative :</strong> en formule Partagée avec un foyer voisin, votre part tomberait à environ " + M.fcfa(Math.round((salaire * (1 + CFG.cotisationsPct / 100)) / 2 / 1000) * 1000) + " / mois.";
     } else if (f === "heure" || f === "urgence") {
-      var r = f === "urgence" ? Math.round(rate * 1.25 / 50) * 50 : rate;
+      var r = f === "urgence" ? Math.round(rate * (1 + CFG.urgenceMajoration / 100) / 50) * 50 : rate;
       var h = duree === "ponctuel" || duree === "urgent" ? Math.max(3, heures) : hMois;
       var label = duree === "ponctuel" || duree === "urgent" ? "Mission de " + h + " h × " + M.fcfa(r) + "/h" : hMois.toFixed(0) + " h / mois × " + M.fcfa(r) + "/h";
       var brut = Math.round(r * h);
       add(label + " (versé à la professionnelle)", brut);
       add("Assurance mission & cotisations", Math.round(brut * 0.06));
-      add("Frais de plateforme (10 %)", Math.round(brut * 0.10));
+      add("Frais de plateforme (" + CFG.heure + " %)", Math.round(brut * CFG.heure / 100));
       if (duree === "court" && hSem >= 20) alt = "<strong>Astuce :</strong> au-delà de quelques semaines, un CDD domestique (formule Permanent) coûte environ 15 % de moins.";
     } else if (f === "partage") {
-      var plein = Math.max(75000, Math.round(rate * 40 * 4.33 * 0.8 / 1000) * 1000);
+      var plein = Math.max(CFG.plancherMensuel, Math.round(rate * 40 * 4.33 * 0.8 / 1000) * 1000);
       var part = Math.min(0.5, Math.max(1 / 3, hSem / 40));
       add("Votre part du salaire plein (" + Math.round(part * 100) + " % d'un temps plein)", Math.round(plein * part / 500) * 500);
-      add("Votre part des cotisations IPRES + CSS", Math.round(plein * 0.126 * part));
-      if (serenite) add("Sérénité partagé", 4500);
-      lines.push(["Frais de placement partagé (une fois)", Math.round(plein * 0.5 * part)]);
+      add("Votre part des cotisations IPRES + CSS", Math.round(plein * CFG.cotisationsPct / 100 * part));
+      if (serenite) add("Sérénité partagé", CFG.serenitePartage);
+      lines.push(["Frais de placement partagé (une fois)", Math.round(plein * CFG.placementPct / 100 * part)]);
       alt = "<strong>Elle y gagne aussi :</strong> un salaire complet de " + M.fcfa(plein) + " avec un seul contrat, au lieu de plusieurs petits jobs sans protection.";
     } else {
       var passages = jours, forfait = Math.round((rate * heures * passages * 4.33) * (passages >= 4 ? 0.85 : passages >= 2 ? 0.92 : 1) / 500) * 500;
@@ -70,8 +78,9 @@
       add("Frais de plateforme (dégressifs)", Math.round(forfait * 0.08));
       if (partage) alt = "<strong>Vous avez coché le partage :</strong> avec 1 ou 2 voisins pour compléter un temps plein, la formule Partagée serait ~20 % moins chère par foyer. Augmentez les heures pour la voir apparaître.";
     }
-    if (diaspora) add("Sama Kër : change & suivi diaspora (3 %)", Math.round(total * 0.03));
+    if (diaspora) add("Sama Kër : change & suivi diaspora (" + CFG.diaspora + " %)", Math.round(total * CFG.diaspora / 100));
 
+    if (CFG.formules && CFG.formules[f] === false) { f = "heure"; }
     var F = FORMULES[f];
     document.getElementById("r-model").innerHTML = '<span class="wolof">' + F.wo + '</span><h3>' + F.nom + '</h3><p style="margin:0;color:rgba(255,255,255,.8)">' + F.why + '</p>';
     var isOnce = f === "heure" && (duree === "ponctuel") || f === "urgence";

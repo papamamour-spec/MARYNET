@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Back-office · MARYNET</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/admin.css">
+</head>
+<body class="admin">
+<div class="adm">
+  <aside class="adm-side">
+    <a class="brand" href="/admin"><svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 4 17v20h32V17z" fill="#0f6b5c"/><path d="M20 3 4 17h32z" fill="#0a4d42"/><path d="M12 33V21l8-5 8 5v12h-5v-8h-6v8z" fill="#f7f1e6"/><circle cx="20" cy="12.5" r="2.6" fill="#e8a33d"/></svg><span>Back-office</span></a>
+    <a class="nav-item" href="#apercu" data-view="apercu">📊 Vue d'ensemble</a>
+    <a class="nav-item" href="#reporting" data-view="reporting">📈 Reporting</a>
+    <a class="nav-item" href="#transactions" data-view="transactions">📒 Transactions</a>
+    <a class="nav-item" href="#operations" data-view="operations">🛠️ Opérations (KYC, litiges)</a>
+    <a class="nav-item" href="#parametrage" data-view="parametrage">⚙️ Paramétrage</a>
+    <a class="nav-item" href="/" target="_blank" rel="noopener">🌐 Voir le site ↗</a>
+    <a class="nav-item" href="#" id="logout">🚪 Se déconnecter</a>
+    <div class="foot" id="foot">Session 12 h · données : …</div>
+  </aside>
+  <main class="adm-main" id="main"><p class="muted">Chargement…</p></main>
+</div>
+<script src="/assets/js/data.js"></script>
+<script src="/assets/js/admin.js"></script>
+</body>
+</html>
