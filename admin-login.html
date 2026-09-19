@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Connexion back-office · MARYNET</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+<main class="wrap" style="min-height:100vh;display:grid;place-items:center;padding:40px 0">
+  <form class="sim-panel form" id="login" style="width:min(420px,100%)" novalidate>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
+      <svg width="38" height="38" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 4 17v20h32V17z" fill="#0f6b5c"/><path d="M20 3 4 17h32z" fill="#0a4d42"/><path d="M12 33V21l8-5 8 5v12h-5v-8h-6v8z" fill="#f7f1e6"/><circle cx="20" cy="12.5" r="2.6" fill="#e8a33d"/></svg>
+      <strong style="font-family:var(--font-display);font-size:1.3rem">MARYNET · Back-office</strong>
+    </div>
+    <p class="muted small" style="margin:0">Espace réservé à l'équipe MARYNET : paramétrage, suivi de l'activité et reporting.</p>
+    <div class="field"><label for="pwd">Mot de passe administrateur</label><input type="password" id="pwd" autocomplete="current-password" required autofocus></div>
+    <div class="notice" id="msg" hidden style="background:var(--terra-soft);color:#8f2f1b"></div>
+    <button class="btn btn-primary btn-lg" type="submit">Se connecter</button>
+    <p class="small muted" style="margin:0">Le mot de passe est défini par la variable d'environnement <span class="kbd">ADMIN_PASSWORD</span> du serveur (Railway → Variables). <a href="/">← Retour au site</a></p>
+  </form>
+</main>
+<script>
+document.getElementById("login").addEventListener("submit", async function (e) {
+  e.preventDefault();
+  var msg = document.getElementById("msg"), btn = this.querySelector("button"); msg.hidden = true; btn.disabled = true;
+  try {
+    var r = await fetch("/api/admin/login", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ password: document.getElementById("pwd").value }) });
+    var d = await r.json();
+    if (r.ok) { location.href = "/admin"; return; }
+    msg.textContent = d.error || "Connexion refusée."; msg.hidden = false;
+  } catch (err) { msg.textContent = "Serveur injoignable."; msg.hidden = false; }
+  btn.disabled = false;
+});
+</script>
+</body>
+</html>
